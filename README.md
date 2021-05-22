@@ -58,6 +58,7 @@ Site: https://sites.google.com/view/scc219-1
         </ul>
       </li>
   <li>Diagrama de navegação e mockups</li>
+      https://marvelapp.com/prototype/64i83ac/screen/79567658
   <li>Informações salvas no servidor
     <ul>
       <li>Dados de administradores;</li>
