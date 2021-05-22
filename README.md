@@ -9,7 +9,8 @@ Site: https://sites.google.com/view/scc219-1
 10724455 - Yago Poletto Salgado <br>
 
 # Requirements
-Página de animal para adoção
+<ul>
+<li>Página de animal para adoção<li>
 Nome;
 Espécie;
 Raça (se houver);
@@ -19,6 +20,7 @@ Formulário de adoção
 Dados do antigo dono (se houver);
 Dados do novo dono;
 Dados do animal.
+</ul>
 
 # Project Description
 Funcionalidades
