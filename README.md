@@ -11,16 +11,20 @@ Site: https://sites.google.com/view/scc219-1
 # Requirements
 <ul>
 <li>Página de animal para adoção
-  <li>Nome;</li>
-  <li>Espécie;</li>
-  <li>Raça (se houver);</li>
-  <li>Vacinas;</li>
-  <li>Idade;</li>
+  <ul>
+    <li>Nome;</li>
+    <li>Espécie;</li>
+    <li>Raça (se houver);</li>
+    <li>Vacinas;</li>
+    <li>Idade;</li>
+  </ul>
 </li>
 <li>Formulário de adoção
-  <li>Dados do antigo dono (se houver);</li>
-  <li>Dados do novo dono;</li>
-  <li>Dados do animal.</li>
+  <ul>
+    <li>Dados do antigo dono (se houver);</li>
+    <li>Dados do novo dono;</li>
+    <li>Dados do animal.</li>
+  </ul>
 </li>
 </ul>
 
