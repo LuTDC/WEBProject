@@ -4,9 +4,9 @@ Site: https://sites.google.com/view/scc219-1
 Project Report
 
 11381768 - Gustavo Akira Hirakawa <br>
-10783312 - Paolo Victor Hitoshi Scassa
-11218917 - Luana Terra do Couto
-10724455 - Yago Poletto Salgado
+10783312 - Paolo Victor Hitoshi Scassa <br>
+11218917 - Luana Terra do Couto <br>
+10724455 - Yago Poletto Salgado <br>
 
 Requirements
 Página de animal para adoção
