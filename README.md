@@ -1,14 +1,14 @@
 # WEBProject - SCC0219 Int. to Web Development - 1 2021
 Site: https://sites.google.com/view/scc219-1
 
-Project Report
+# Project Report
 
 11381768 - Gustavo Akira Hirakawa <br>
 10783312 - Paolo Victor Hitoshi Scassa <br>
 11218917 - Luana Terra do Couto <br>
 10724455 - Yago Poletto Salgado <br>
 
-Requirements
+# Requirements
 Página de animal para adoção
 Nome;
 Espécie;
@@ -20,7 +20,7 @@ Dados do antigo dono (se houver);
 Dados do novo dono;
 Dados do animal.
 
-Project Description
+# Project Description
 Funcionalidades
 Serviços de Estética Animal
 Banho;
