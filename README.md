@@ -57,10 +57,13 @@ Site: https://sites.google.com/view/scc219-1
           <li>“SOS” Animal.</li>
         </ul>
       </li>
-Diagrama de navegação e mockups
-Informações salvas no servidor
-Dados de administradores;
-Dados de usuários.
+  <li>Diagrama de navegação e mockups</li>
+  <li>Informações salvas no servidor
+    <ul>
+      <li>Dados de administradores;</li>
+      <li>Dados de usuários.</li>
+    </ul>
+  </li>
 </ul>
 
 
