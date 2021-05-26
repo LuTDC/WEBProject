@@ -146,6 +146,10 @@ ul
   min-width: 800px;
 }
 
+dl{
+    list-style-type: none;
+}
+
 .carousel
 {
 	width: 100%;
@@ -170,6 +174,16 @@ li a:hover:not(.active)
 {
   background-color: #56634C;
   color: white;
+}
+
+dd a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+dd a:link{
+    color: white;
+    text-decoration: none;
 }
 
 .active 
@@ -253,4 +267,40 @@ h1
     background-color:#B6D293;
     color:#56634C;
     padding: 0 0 0 0px;
+}
+
+.pageTitle{
+    color: white;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.productsSection{
+    background-color: #B6D293;
+    color: #56634C;
+    font-size: 10px;
+}
+
+.product{
+    width: 200px;
+    height: 200px;
+    margin: 20px;    
+    text-align: justify;
+    float: right;
+    display: block;
+}
+
+.filters{
+    background-color: #56634C;
+    color: white;
+    width: 200px;
+    font-size: 24px;
+}
+
+.buyButton{
+    background-color: #47525E;
+    color: white;
 }
