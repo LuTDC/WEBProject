@@ -343,3 +343,37 @@ h1
     color: #56634C;
 }
 
+/* Mudanças Paolo */
+
+input[type=text], select {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #56634C;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=password], select {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #56634C;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  label 
+  {
+      font-size: 30px;
+  }
+  
+  .background2
+  {
+      background-color:#B6D293;
+      color:#56634C;
+      text-align:right;
+      padding-top: 50px;
+  }
