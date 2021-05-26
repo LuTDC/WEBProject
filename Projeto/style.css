@@ -282,15 +282,22 @@ h1
     background-color: #B6D293;
     color: #56634C;
     font-size: 10px;
+    display: flex;
+}
+
+.productsColumns{
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 .product{
     width: 200px;
     height: 200px;
-    margin: 20px;    
-    text-align: justify;
-    float: right;
-    display: block;
+    margin-bottom: 100px;
+    padding: 50px;
 }
 
 .filters{
@@ -303,4 +310,36 @@ h1
 .buyButton{
     background-color: #47525E;
     color: white;
+    cursor: pointer;
+    float: center;
+    margin: 0 auto;
 }
+
+.paginationDiv{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.pagination{
+    border: 1px solid #ddd;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: #56634C;
+}
+
+.pagination a.active{
+    background-color: #56634C;
+    color: white;
+}
+  
+.pagination a:hover:not(.active){
+    background-color: white;
+    color: #56634C;
+}
+
