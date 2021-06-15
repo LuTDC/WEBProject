@@ -86,7 +86,7 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
 # Test Results
     
 # Build Procedures
-    Não necessários. Frameworks não utilizados.
+Não necessários. Frameworks não utilizadas.
     
 # Problems
 No problems
