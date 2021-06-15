@@ -70,7 +70,7 @@ Site: https://sites.google.com/view/scc219-1
 
 
 # Comments about the code
-    No comments
+No comments
     
 # Test Plan
 Os testes foram realizados manualmente. Para sua execução, foram tomadas as sequintes ações:
@@ -89,6 +89,6 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
     Não necessários. Frameworks não utilizados.
     
 # Problems
-    No problems
+No problems
     
 # Comments
