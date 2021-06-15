@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tosa </title>
+    <title> Agendamento </title>
     <link href="style.css" rel="stylesheet">
     <script src="source.js"></script>
 </head>
@@ -13,23 +13,30 @@
         <li><a href="Home.html">Logo</a></li>
         <li><a href="Home.html">Início</a></li>
         <li><a href="Products.html">Produtos</a></li>
-        <li><a class="active" href="Servicos.html">Serviços</a></li>
+        <li><a href="Servicos.html">Serviços</a></li>
         <li><a href="Adocao.html">Adoção</a></li>
         <li><a href="Sobre.html">Sobre</a></li>
         <li style="float: right"><a href="Cadastro.html">Registrar</a></li>
         <li style="float: right"><a href="LogIn.html">Entrar</a></li>
     </ul>
     <div class="background">
-        <img src="img/tosa.jpg" class="carousel">
+        <img src="img/servicos.jpeg" class="carousel">
     </div>
-    <div class="servicesDiv">
-        <p class="description">Agende o banho do seu pet com nossos profissionais, 
-            etc. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Nulla vestibulum mauris ut diam vulputate, nec
-            scelerisque magna maximus. Suspendisse sit amet ex vestibulum,
-            semper nunc quis, consequat arcu. Pellentesque feugiat
-            molestie enim a aliquam.</p><br>
-        <button class="buyButton" onclick="location.href=('Agendamento.html')"> Agende agora! </button>
+    <div class="background2">
+        <div class="text-center">
+            <input type="date" id="fname" name="date">
+            <br>
+            <br>
+            <label for="fname"><b>Confirme sua senha:</b></label>
+            <br>
+            <input type="password" id="fname" name="confirmation" placeholder="Digite sua senha novamente..">
+            <br>
+            <br>
+            <br>
+            <button type="button" onclick="scheduling()">
+            Agendar
+            </button>
+        </div>
     </div>
     <div class="background">
         <img src="img/lineup.png" class="carousel">

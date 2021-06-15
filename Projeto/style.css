@@ -467,3 +467,14 @@ input[type=text], select {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+/* Tosa, banho, vet */
+
+.servicesDiv{
+    background-color: #56634C;
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+}

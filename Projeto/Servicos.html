@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cadastro </title>
+    <title>Document</title>
     <link href="style.css" rel="stylesheet">
     <script src="source.js"></script>
-    <!--<link href="style2.css" rel="stylesheet">-->
 </head>
 <body>
     <ul id="upperMenu">
         <li><a href="Home.html">Logo</a></li>
         <li><a href="Home.html">Início</a></li>
         <li><a href="Products.html">Produtos</a></li>
-        <li><a href="Servicos.html">Serviços</a></li>
+        <li><a class="active" href="Servicos.html">Serviços</a></li>
         <li><a href="Adocao.html">Adoção</a></li>
         <li><a href="Sobre.html">Sobre</a></li>
         <li style="float: right"><a href="Cadastro.html">Registrar</a></li>
@@ -22,49 +21,18 @@
     </ul>
 
     <div class="body">
-		<img src="img/registrar.jpg" class="carousel">
+		<img src="img/servicos.jpeg" class="carousel">
 		<div class="background2">
 			<div class="text-center">
-				<label for="fname"><b>Nome da Completo:</b></label>
+				<b style="font-size: 50px;">A saúde do seu pet é prioridade. Se ele precisar de banho, tosa ou atendimento veterinário, é só marcar conosco. Caso já seja cadastrado no site, siga direto para o agendamento.</b>
 				<br>
-				<input type="text" id="fname" name="name" placeholder="Digite seu nome..">
-				<br>
-				<label for="fname"><b>Nome da Conta:</b></label>
-				<br>
-				<input type="password" id="fname" name="nickname" placeholder="Digite seu usuário..">
-				<br>
-				<label for="fname"><b>E-mail:</b></label>
-				<br>
-				<input type="password" id="fname" name="email" placeholder="Digite seu email..">
-				<br>
-				<br>
-				<label for="fname"><b>Endereço:</b></label>
-				<br>
-				<input type="password" id="fname" name="address" placeholder="Digite seu endereço..">
-				<br>
-				<br>
-				<label for="fname"><b>Telefone:</b></label>
-				<br>
-				<input type="password" id="fname" name="phone" placeholder="Digite seu telefone..">
-				<br>
-				<label for="fname"><b>Senha:</b></label>
-				<br>
-				<input type="password" id="fname" name="password" placeholder="Digite sua senha..">
-				<br>
-				<label for="fname"><b>Confirme sua senha:</b></label>
-				<br>
-				<input type="password" id="fname" name="confirmation" placeholder="Digite sua senha novamente..">
-				<br>
-				<br>
-				<br>
-				<label class="container">Marque aqui caso queira receber notificações por e-mail.
-					<input type="checkbox">
-					<span class="checkmark"></span>
-				</label>
-				<br>
-                <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                Cadastrar
+                <button type="button" onclick="location.href=('Cadastro.html')">
+                Inscreva-se Já
                 </button>
+				<button type="button" onclick="location.href=('Agendamento.html')">
+                Agendamento
+                </button>
+				<br>
             </div>
             <img src="img/lineup.png" class="carousel">
         </div>
