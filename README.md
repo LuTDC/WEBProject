@@ -70,10 +70,26 @@ Site: https://sites.google.com/view/scc219-1
 
 
 # Comments about the code
-    No comments
+No comments
+    
 # Test Plan
+Os testes foram realizados manualmente. Para sua execução, foram tomadas as sequintes ações:
+<ul>
+  <li> Foram testados todos os links do menu superior que dirigem o usuário as demais páginas; </li>
+  <li> Foram testados todos os links presentes no decorrer das páginas que dirigem o usuário as demais páginas; </li>
+  <li> Compras foram simuladas para verificar a confirmação de compra; </li>
+  <li> Agendamentos de serviços foram simulados para verificar a confirmação de agendamento; </li>
+  <li> Cadastros foram simulados para verificar a confirmação de castro e login; </li>
+  <li> Cadastros foram simulados para verificar a ocultação das senhas. </li>
+</ul>
+    
 # Test Results
+Verificar o PDF anexo.    
+    
 # Build Procedures
+Não necessários. Frameworks não utilizadas.
+    
 # Problems
-    No problems
+No problems
+    
 # Comments
