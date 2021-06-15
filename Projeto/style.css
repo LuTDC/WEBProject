@@ -490,3 +490,36 @@ input[type=text], select {
     width: 800px;
     height: 600px;
 }
+
+/* Adoção */
+
+.holder_box {
+    margin: 40px;
+    padding: 2%;
+    text-align: center;
+    margin: auto;
+}
+
+.adopt {
+    float: left;
+    width: 19%;
+    min-width:max-content;
+    margin: 5px 5px 50px 5px;
+    background-color: #56634C;
+    filter: brightness(50%);
+    border-style: solid;
+    border-color: #56634C;
+    color: white;
+}
+
+.adopt:hover
+{
+    transition: 0.35s;
+    filter: brightness(100%);
+    background-color: #B6D293;
+    border-color: #B6D293;
+}
+
+.pad{
+    margin: 0px 0px 0px 50px;
+}
