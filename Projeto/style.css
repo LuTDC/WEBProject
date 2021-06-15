@@ -478,3 +478,17 @@ input[type=text], select {
       justify-content: center;
       padding: 50px;
 }
+
+/* Sobre */
+
+.text-left {
+    text-align: left;
+    padding: 0px 35px 35px 35px;
+    font-size: 20px;
+}
+
+.small
+{
+    width: 800px;
+    height: 600px;
+}
