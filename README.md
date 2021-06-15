@@ -70,8 +70,10 @@ Site: https://sites.google.com/view/scc219-1
 
 
 # Comments about the code
+    No coments
 # Test Plan
 # Test Results
 # Build Procedures
 # Problems
+    No problems
 # Comments
