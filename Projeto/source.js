@@ -9,3 +9,11 @@ function scheduling(){
 function adopt(){
     alert("Parabéns! Você anotou seu novo PET! Para levá-lo para o novo lar, dirija-se a nossa loja com a senha: #" + Math.random());
 }
+
+function register(){
+    alert("Cadastro realizado com sucesso!");
+}
+
+function logIn(){
+    alert("Login realizado com sucesso!");
+}
