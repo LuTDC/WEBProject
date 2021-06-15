@@ -1,3 +1,4 @@
+/* Home e geral */
 * {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
@@ -135,7 +136,7 @@ button:hover:not(.active) {
     min-width: 1300px;
 }
 
-/*----------------------------------------*/
+/*-----------------------*/
 
 ul 
 {
@@ -347,7 +348,7 @@ h1
     color: #56634C;
 }
 
-/* Mudanças Paolo */
+/* Log in */
 
 input[type=text], select {
     width: 500px;
@@ -380,4 +381,28 @@ input[type=text], select {
       color:#56634C;
       text-align:right;
       padding-top: 50px;
+  }
+
+  /* Produto */
+
+  .productDiv{
+      background-color:#56634C;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+  }
+
+  .buySection{
+    background-color:#56634C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .price{
+      color: white;
+      padding-right: 40px;
   }
