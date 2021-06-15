@@ -71,6 +71,7 @@ Site: https://sites.google.com/view/scc219-1
 
 # Comments about the code
     No comments
+    
 # Test Plan
     Os testes foram realizados manualmente. Para sua execução, foram tomadas as sequintes ações:
     <ul>
@@ -82,8 +83,11 @@ Site: https://sites.google.com/view/scc219-1
       <li> Cadastros foram simulados para verificar a ocultação das senhas. </li>
   </ul>
 # Test Results
+    
 # Build Procedures
     Não necessários. Frameworks não utilizados.
+    
 # Problems
     No problems
+    
 # Comments
