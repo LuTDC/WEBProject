@@ -2,6 +2,10 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
 
+#upperMenu{
+    z-index: 1;
+}
+
  body {
     background-color: #1a120f;
  }
