@@ -313,8 +313,6 @@ h1
 }
 
 .buyButton{
-    background-color: #47525E;
-    color: white;
     cursor: pointer;
     float: center;
     margin: 0 auto;
