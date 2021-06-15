@@ -84,6 +84,7 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
 </ul>
     
 # Test Results
+Verificar o PDF anexo.    
     
 # Build Procedures
 Não necessários. Frameworks não utilizadas.
