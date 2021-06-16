@@ -87,7 +87,15 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
 Verificar o PDF anexo.    
     
 # Build Procedures
-Não necessários. Frameworks não utilizadas.
+Procedimentos:
+    - Instalar Node.js;
+    - Abrir command prompt;
+    - Digite "npm install -g node-static", aguarde;
+    - Digite "npm install -g express", aguarde;
+    - Fechar e abrir o console;
+    - Executar server.js (nome do javascript);
+    - Digite "node server.js", aguarde;
+    - Digite na barra de pesquisa "localhost:8000".
     
 # Problems
 No problems
