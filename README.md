@@ -87,15 +87,15 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
 Verificar o PDF anexo.    
     
 # Build Procedures
-Procedimentos:
-    - Instalar Node.js;
-    - Abrir command prompt;
-    - Digite "npm install -g node-static", aguarde;
-    - Digite "npm install -g express", aguarde;
-    - Fechar e abrir o console;
-    - Executar server.js (nome do javascript);
-    - Digite "node server.js", aguarde;
-    - Digite na barra de pesquisa "localhost:8000".
+Procedimentos:<br>
+    - Instalar Node.js;<br>
+    - Abrir command prompt;<br>
+    - Digite "npm install -g node-static", aguarde;<br>
+    - Digite "npm install -g express", aguarde;<br>
+    - Fechar e abrir o console;<br>
+    - Executar server.js (nome do javascript);<br>
+    - Digite "node server.js", aguarde;<br>
+    - Digite na barra de pesquisa "localhost:8000".<br>
     
 # Problems
 No problems
