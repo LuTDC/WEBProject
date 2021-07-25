@@ -1,3 +1,4 @@
+//const server = require('server.js');
 
 const home = {
     template: `
@@ -617,29 +618,29 @@ const registrar = {
 			<div class="text-center">
 				<label for="fname"><b>Nome Completo:</b></label>
 				<br>
-				<input type="text" id="fname" name="name" placeholder="Digite seu nome..">
+				<input type="text" id="fname" class="nomeCliente" name="name" placeholder="Digite seu nome..">
 				<br>
 				<label for="fname"><b>Nome da Conta:</b></label>
 				<br>
-				<input type="text" id="fname" name="nickname" placeholder="Digite seu usuário..">
+				<input type="text" id="fname" class="apelidoCliente" name="nickname" placeholder="Digite seu usuário..">
 				<br>
 				<label for="fname"><b>E-mail:</b></label>
 				<br>
-				<input type="text" id="fname" name="email" placeholder="Digite seu email..">
+				<input type="text" id="fname" class="emailCliente" name="email" placeholder="Digite seu email..">
 				<br>
 				<br>
 				<label for="fname"><b>Endereço:</b></label>
-				<br>
-				<input type="text" id="fname" name="address" placeholder="Digite seu endereço..">
+				<br> 
+				<input type="text" id="fname" name="address" class="enderecoCliente" placeholder="Digite seu endereço.."> 
 				<br>
 				<br>
 				<label for="fname"><b>Telefone:</b></label>
 				<br>
-				<input type="text" id="fname" name="phone" placeholder="Digite seu telefone..">
+				<input type="text" id="fname" class="telefoneCliente" name="phone" placeholder="Digite seu telefone..">
 				<br>
 				<label for="fname"><b>Senha:</b></label>
 				<br>
-				<input type="password" id="fname" name="password" placeholder="Digite sua senha..">
+				<input type="password" id="fname" class="senhaCliente" name="password" placeholder="Digite sua senha..">
 				<br>
 				<label for="fname"><b>Confirme sua senha:</b></label>
 				<br>
@@ -652,13 +653,28 @@ const registrar = {
 					<span class="checkmark"></span>
 				</label>
 				<br>
-                <button type="button" onclick="register()">
+                <button type="button" @click="put">
                 Cadastrar
                 </button>
             </div>
         </div>
     </div>
-    `
+    `,
+    methods: {
+        put: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000/#/registrar", {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({username: "luana"})
+                });    
+            }
+            catch (e) {alert("Error: " + e);}
+        },
+    }
 }
 
 const veterinario = {
@@ -972,7 +988,20 @@ var app = new Vue({
     methods: {
         setActive: function(event) {
             this.isActive = !this.isActive;
-        }
+        },
+        create: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000/#/registrar", {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({username: "luana"})
+                });    
+            }
+            catch (e) {alert("Error: " + e);}
+        },
     },
 
     router
@@ -995,10 +1024,22 @@ function adopt(){
     alert("Parabéns! Você anotou seu novo PET! Para levá-lo para o novo lar, dirija-se a nossa loja com a senha: #" + Math.random());
 }
 
-function register(){
-    alert("Cadastro realizado com sucesso!");
-}
+async function inserirCliente(){
+    /*await client.db("WEB").collection("WEBBD").insertOne({
+      name: document.getElementsByClassName(nomeCliente)[0].value,
+      nickname: document.getElementsByClassName(apelidoCliente)[0].value,
+      email: document.getElementsByClassName(emailCliente)[0].value,
+      address: document.getElementsByClassName(enderecoCliente)[0].value, 
+      phone: document.getElementsByClassName(telefoneCliente)[0].value,
+      password: document.getElementsByClassName(senhaCliente)[0].value,
+      check: document.getElementsByClassName(checkCliente)[0].value
+    });*/
+    await client.db("WEB").collection("WEBBD").insertOne({name: Luana});
+    //alert("Deu");
+  }
 
 function logIn(){
     alert("Login realizado com sucesso!");
 }
+
+
