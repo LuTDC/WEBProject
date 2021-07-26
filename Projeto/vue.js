@@ -586,6 +586,12 @@ const sobre = {
 };
 
 const entrar = {
+    data: function(){
+        return{
+            nome: null, 
+            senha: null
+        }
+    },
     template: `
     <div>
         <img src="img/logInImage.png" class="carousel">
@@ -600,16 +606,43 @@ const entrar = {
                 <br>
                 <input type="password" id="fname" name="firstname" placeholder="Sua Senha..">
                 <br>
-                <button type="button" onclick="logIn()">
+                <button type="button" @click="login">
                 Entrar
                 </button>
             </div>
         </div>
     </div>
-    `
+    `,
+    methods:
+    {
+        login: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({name: this.nome, senha: this.senha})
+                });    
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    }
 }
 
 const registrar = {
+    data: function(){
+        return{
+            nome: null,
+            apelido: null,
+            email: null, 
+            endereco: null,
+            telefone: null,
+            senha: null,
+            check: null
+        }
+    },
     template: `
     <div>
         <img src="img/registrar.jpg" class="carousel">
@@ -618,29 +651,29 @@ const registrar = {
 			<div class="text-center">
 				<label for="fname"><b>Nome Completo:</b></label>
 				<br>
-				<input type="text" id="fname" class="nomeCliente" name="name" placeholder="Digite seu nome..">
+				<input type="text" id="fname" class="nomeCliente" name="name" placeholder="Digite seu nome.." v-model="nome">
 				<br>
 				<label for="fname"><b>Nome da Conta:</b></label>
 				<br>
-				<input type="text" id="fname" class="apelidoCliente" name="nickname" placeholder="Digite seu usuário..">
+				<input type="text" id="fname" class="apelidoCliente" name="nickname" placeholder="Digite seu usuário.." v-model="apelido">
 				<br>
 				<label for="fname"><b>E-mail:</b></label>
 				<br>
-				<input type="text" id="fname" class="emailCliente" name="email" placeholder="Digite seu email..">
+				<input type="text" id="fname" class="emailCliente" name="email" placeholder="Digite seu email.." v-model="email">
 				<br>
 				<br>
 				<label for="fname"><b>Endereço:</b></label>
 				<br> 
-				<input type="text" id="fname" name="address" class="enderecoCliente" placeholder="Digite seu endereço.."> 
+				<input type="text" id="fname" name="address" class="enderecoCliente" placeholder="Digite seu endereço.." v-model="endereco"> 
 				<br>
 				<br>
 				<label for="fname"><b>Telefone:</b></label>
 				<br>
-				<input type="text" id="fname" class="telefoneCliente" name="phone" placeholder="Digite seu telefone..">
+				<input type="text" id="fname" class="telefoneCliente" name="phone" placeholder="Digite seu telefone.." v-model="telefone">
 				<br>
 				<label for="fname"><b>Senha:</b></label>
 				<br>
-				<input type="password" id="fname" class="senhaCliente" name="password" placeholder="Digite sua senha..">
+				<input type="password" id="fname" class="senhaCliente" name="password" placeholder="Digite sua senha.." v-model="senha">
 				<br>
 				<label for="fname"><b>Confirme sua senha:</b></label>
 				<br>
@@ -649,11 +682,11 @@ const registrar = {
 				<br>
 				<br>
 				<label class="container">Marque aqui caso queira receber notificações por e-mail.
-					<input type="checkbox">
+					<input type="checkbox" v-model="check">
 					<span class="checkmark"></span>
 				</label>
 				<br>
-                <button type="button" @click="put">
+                <button type="button" @click="registrar">
                 Cadastrar
                 </button>
             </div>
@@ -661,19 +694,20 @@ const registrar = {
     </div>
     `,
     methods: {
-        put: async function() {
+        registrar: async function() {
+            alert("Cadastro realizado com sucesso!");
             try {
-                let resp = await fetch("http://localhost:8000/#/registrar", {
-                    method: 'PUT',
+                let resp = await fetch("http://localhost:8000", {
+                    method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({username: "luana"})
+                    body: JSON.stringify({name: this.nome, nick: this.apelido, email: this.email, endereco: this.endereco, telefone: this.telefone, senha: this.senha, check: this.check})
                 });    
             }
-            catch (e) {alert("Error: " + e);}
-        },
+            catch (e) {console.log("Error: " + e);}
+        }
     }
 }
 

@@ -6,6 +6,10 @@ const {MongoClient} = require('mongodb');
 const bodyParser = require('body-parser');
 const router = express.Router();
 
+//const mongo = require('mongodb');
+
+//const MongoClient = mongo.MongoClient;
+
 exp.use(bodyParser.json());
 exp.use(bodyParser.urlencoded({extended: false}));
 
@@ -24,39 +28,21 @@ exp.use(express.static(__dirname));
 exp.get("/", (req, res) => {
   res.sendFile(__dirname + "/spa.html");
 });
-
 //------- Conexão com o banco de dados -------//
 async function main() {
-	//const uri = "mongodb+srv://luana:webbd@cluster0.ai7ca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-  //const client = new MongoClient(uri);
-
-  await client.connect();
-  await listDatabases(client);
+	await client.connect();
+  exp.use('/', insert);
 
   try {
     await client.connect();
-
-    await listDatabases();
  
   } catch (e) {
     console.error(e);
-  }
-  finally {
-    await client.close();
   }
 }
 main().catch(console.error);
 
 //------- Operações do banco de dados -------//
-const inserir = router.put('/', (req, res, next) => {
-  client.db("WEB").collection("WEBBD").insertOne({name: "Luana"});
+const insert = router.post('/', (req, res) => {
+  client.db("WEB").collection("WEBDB").insertOne(req.body);
 });
-
-exp.use('/', inserir);
-
-async function listDatabases(){
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
