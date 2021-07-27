@@ -92,8 +92,7 @@ Procedimentos:<br>
     - Abrir command prompt;<br>
     - Digite "npm install -g node-static", aguarde;<br>
     - Digite "npm install -g express", aguarde;<br>
-    - Fechar e abrir o console;<br>
-    - Executar server.js (nome do javascript);<br>
+    - Acesse o path da pasta Projeto;<br>
     - Digite "node server.js", aguarde;<br>
     - Digite na barra de pesquisa "localhost:8000".<br>
     
@@ -101,3 +100,4 @@ Procedimentos:<br>
 No problems
     
 # Comments
+    - Para obter acesso às funcionalidades de administrador, realize o login com o nick: PVHS e a senha: admin .<br>
