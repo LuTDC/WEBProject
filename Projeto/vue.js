@@ -1,4 +1,3 @@
-//const server = require('server.js');
 
 const home = {
     template: `
@@ -588,8 +587,9 @@ const sobre = {
 const entrar = {
     data: function(){
         return{
-            nome: null, 
-            senha: null
+            nick: null, 
+            senha: null,
+            hiddenButtons: ``
         }
     },
     template: `
@@ -600,11 +600,11 @@ const entrar = {
             <div class="text-center">
                 <label for="fname"><b>Nome da Conta:</b></label>
                 <br>
-                <input type="text" id="fname" name="firstname" placeholder="Nome da conta..">
+                <input type="text" id="fname" name="firstname" placeholder="Nome da conta.." v-model="nick">
                 <br>
                 <label for="fname"><b>Senha:</b></label>
                 <br>
-                <input type="password" id="fname" name="firstname" placeholder="Sua Senha..">
+                <input type="password" id="fname" name="firstname" placeholder="Sua Senha.." v-model="senha">
                 <br>
                 <button type="button" @click="login">
                 Entrar
@@ -617,17 +617,22 @@ const entrar = {
     {
         login: async function() {
             try {
-                let resp = await fetch("http://localhost:8000", {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({name: this.nome, senha: this.senha})
+                let resp = await fetch("http://localhost:8000/users/" + this.nick + "/" + this.senha, {
+                    method: 'GET'
                 });    
+                const data = await resp.json();
+                alert(data.message);
+
+                if(data.admin == true){
+                    this.$root.hiddenButton1 = `<router-link to="/admin_doacoes">Gerenciar adoções</router-link>`;
+                    this.$root.hiddenButton2 = `<router-link to="/admin_estoque">Gerenciar estoque</router-link>`;
+                }
             }
             catch (e) {console.log("Error: " + e);}
         }
+    },
+    mounted(){
+        this.$root.hiddenButtons = this.hiddenButtons;
     }
 }
 
@@ -695,16 +700,17 @@ const registrar = {
     `,
     methods: {
         registrar: async function() {
-            alert("Cadastro realizado com sucesso!");
             try {
-                let resp = await fetch("http://localhost:8000", {
+                let resp = await fetch("http://localhost:8000/users", {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({name: this.nome, nick: this.apelido, email: this.email, endereco: this.endereco, telefone: this.telefone, senha: this.senha, check: this.check})
+                    body: JSON.stringify({name: this.nome, nick: this.apelido, email: this.email, endereco: this.endereco, telefone: this.telefone, senha: this.senha, check: this.check, admin: false})
                 });    
+                const data = await resp.json();
+                alert(data.message);
             }
             catch (e) {console.log("Error: " + e);}
         }
@@ -785,6 +791,12 @@ const banho = {
 }
 
 const agendamento = {
+    data: function(){
+        return{
+            data: null,
+            servico: null
+        }
+    },
     template: `
     <div>
         <div class="background">
@@ -794,10 +806,10 @@ const agendamento = {
         <div class="background2">
             <div class="text-center">
                 Data:
-                <input required type="date" id="fname" name="date">
+                <input required type="date" id="fname" name="date" v-model="data">
                 <br>
                 <br>
-                <select required name="services">
+                <select required name="services" v-model="servico">
                     <option value="" disabled selected hidden> Escolha um serviço... </option>
                     <option value="vet"> Veterinário </option>
                     <option value="banho"> Banho </option>
@@ -805,16 +817,41 @@ const agendamento = {
                 </select>
                 <br>
                 <br>
-                <button type="button" onclick="scheduling()">
+                <button type="button" @click="agendar">
                     Agendar
                 </button>
             </div>
         </div>
     </div>
-    `
+    `,
+    methods: {
+        agendar: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000/services/agendar", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({data: this.data, servico: this.servico})
+                });    
+                const data = await resp.json();
+                alert(data.message);
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    }
 }
 
 const admin_doacoes = {
+    data: function(){
+        return{
+            nome: null,
+            raca: null,
+            vacinas: null,
+            idade: null
+        }
+    },
     template:`
     <div>
         <img src="img/abouttrees.jpg" class="carousel">
@@ -829,31 +866,55 @@ const admin_doacoes = {
                     <br>
                     <label for="fname"><b>Nome:</b></label>
                     <br>
-                    <input type="text" id="fname" name="name" placeholder="Digite o nome..">
+                    <input type="text" id="fname" name="name" placeholder="Digite o nome.." v-model="nome">
                     <br>
                     <label style="float: center" for="fname"><b>Raça:</b></label>
                     <br>
-                    <input style="float: center" type="text" id="fname" name="race" placeholder="Digite a raça..">
+                    <input style="float: center" type="text" id="fname" name="race" placeholder="Digite a raça.." v-model="raca">
                     <br>
                     <label for="fname"><b>Vacina:</b></label>
                     <br>
-                    <input type="text" id="fname" name="vaccine" placeholder="Digite a vacinas..">
+                    <input type="text" id="fname" name="vaccine" placeholder="Digite a vacinas.." v-model="vacinas">
                     <br>
                     <label for="fname"><b>Idade:</b></label>
                     <br>
-                    <input type="text" id="fname" name="idades" placeholder="Digite a idade..">
+                    <input type="text" id="fname" name="idades" placeholder="Digite a idade.." v-model="idade">
                     <br>
-                    <button type="button">
+                    <button type="button" @click="cadastrar">
                         Inserir
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    `
+    `,
+    methods: {
+        cadastrar: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000/pets/cadastrar", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({nome: this.nome, raca: this.raca, vacinas: this.vacinas, idade: this.idade})
+                });  
+                const data = await resp.json();  
+                alert(data.message);
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    }
 }
 
 const admin_estoque = {
+    data: function(){
+        return{
+            nome: null, 
+            preco: null,
+            quantidade: null
+        }
+    },
     template:`
     <div>
     <img src="img/abouttrees.jpg" class="carousel">
@@ -869,24 +930,41 @@ const admin_estoque = {
                 <br>
                 <label for="fname"><b>Nome do Produto:</b></label>
                 <br>
-                <input type="text" id="fname" name="product" placeholder="Digite o produto..">
+                <input type="text" id="fname" name="product" placeholder="Digite o produto.." v-model="nome">
                 <br>
                 <label style="float: center" for="fname"><b>Preço:</b></label>
                 <br>
-                <input style="float: center" type="text" id="fname" name="price" placeholder="Digite o preço..">
+                <input style="float: center" type="text" id="fname" name="price" placeholder="Digite o preço.." v-model="preco">
                 <br>
                 <label for="fname"><b>Quantidade:</b></label>
                 <br>
-                <input type="text" id="fname" name="quantity" placeholder="Digite a quantidade..">
+                <input type="text" id="fname" name="quantity" placeholder="Digite a quantidade.." v-model="quantidade">
                 <br>
-                <button type="button">
+                <button type="button" @click="inserir">
                     Inserir
                 </button>
             </div>
         </div>
     </div>
     </div>
-    `
+    `,
+    methods: {
+        inserir: async function() {
+            try {
+                let resp = await fetch("http://localhost:8000/products/inserir", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({nome: this.nome, preco: this.preco, quantidade: this.quantidade})
+                });    
+                const data = await resp.json();  
+                alert(data.message);
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    }
 }
 
 const admin_servicos = {
@@ -971,7 +1049,9 @@ var app = new Vue({
         items: [
             { name: 'Logo' },
             { name: 'Início'}
-        ]
+        ],
+        hiddenButton1: ``,
+        hiddenButton2: ``
     },
     template: `
     <div>
@@ -982,6 +1062,8 @@ var app = new Vue({
             <li><router-link to="/servicos">Serviços</router-link></li>
             <li><router-link to="/adocao">Adoção</router-link></li>
             <li><router-link to="/sobre">Sobre</router-link></li>
+            <li><router-link to="/admin_doacoes" v-html="this.hiddenButton1"></router-link></li>
+            <li><router-link to="/admin_estoque" v-html="this.hiddenButton2"></router-link></li>
             <li style="float: right"><router-link to="/registrar">Registrar</router-link></li>
             <li style="float: right"><router-link to="/entrar">Entrar</router-link></li>
         </ul>
@@ -1023,19 +1105,6 @@ var app = new Vue({
         setActive: function(event) {
             this.isActive = !this.isActive;
         },
-        create: async function() {
-            try {
-                let resp = await fetch("http://localhost:8000/#/registrar", {
-                    method: 'PUT',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({username: "luana"})
-                });    
-            }
-            catch (e) {alert("Error: " + e);}
-        },
     },
 
     router
@@ -1047,33 +1116,7 @@ $('#navbar li').click(function(e) {
 });
 
 function addCart(){
-    alert("Item adicionado ao carrinho!");
-}
-
-function scheduling(){
-    alert("Horário agendado com sucesso!");
-}
-
-function adopt(){
-    alert("Parabéns! Você anotou seu novo PET! Para levá-lo para o novo lar, dirija-se a nossa loja com a senha: #" + Math.random());
-}
-
-async function inserirCliente(){
-    /*await client.db("WEB").collection("WEBBD").insertOne({
-      name: document.getElementsByClassName(nomeCliente)[0].value,
-      nickname: document.getElementsByClassName(apelidoCliente)[0].value,
-      email: document.getElementsByClassName(emailCliente)[0].value,
-      address: document.getElementsByClassName(enderecoCliente)[0].value, 
-      phone: document.getElementsByClassName(telefoneCliente)[0].value,
-      password: document.getElementsByClassName(senhaCliente)[0].value,
-      check: document.getElementsByClassName(checkCliente)[0].value
-    });*/
-    await client.db("WEB").collection("WEBBD").insertOne({name: Luana});
-    //alert("Deu");
-  }
-
-function logIn(){
-    alert("Login realizado com sucesso!");
+    alert("Produto adicionado ao carrinho!");
 }
 
 
