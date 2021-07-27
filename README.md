@@ -99,7 +99,7 @@ Procedimentos:<br>
     - Digite na barra de pesquisa "localhost:8000".<br>
     
 # Problems
-No problems
+    - O procedimento de logout não está funcionando devidamente.
     
 # Comments
     - Para obter acesso às funcionalidades de administrador, realize o login com o nick: PVHS e a senha: admin .<br>
