@@ -4,6 +4,7 @@ const express = require("express");
 const exp = express();
 const {MongoClient} = require('mongodb');
 const bodyParser = require('body-parser');
+const { json } = require("body-parser");
 const router = express.Router();
 
 exp.use(bodyParser.json());
@@ -61,6 +62,11 @@ const cadastrar = router.post('/cadastrar', (req, res) => {
   res.status(201).json({ message: "Pet cadastrado com sucesso!"});
 });
 
+const animais = router.get('/animais', async (req, res) => {
+  const p = await client.db("WEB").collection("Pets").find({}).toArray();
+  res.status(201).json(p); 
+});
+
 //------- Produtos -------//
 
 const inserir = router.post('/inserir', (req, res) => {
@@ -68,11 +74,18 @@ const inserir = router.post('/inserir', (req, res) => {
   res.status(201).json({ message: "Produto cadastrado com sucesso!"});
 });
 
+const produtos = router.get('/produtos', async (req, res) => {
+  const p = await client.db("WEB").collection("Estoque").find({}).toArray();
+  res.status(201).json(p); 
+});
+
 exp.use('/users', registrar);
 exp.use('/users', login);
 exp.use('/services', agendar);
 exp.use('/pets', cadastrar);
+exp.use('/pets', animais);
 exp.use('/products', inserir);
+exp.use('/products', produtos);
 
 exp.listen(8000, () => {
   console.log("Application started and Listening on port 8000");

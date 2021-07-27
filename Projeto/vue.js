@@ -217,6 +217,11 @@ const home = {
 };
 
 const produtos = {
+    data: function(){
+        return{
+            produtos: []
+        }
+    },
     template: `
     <div>
         <div class="background">
@@ -236,72 +241,12 @@ const produtos = {
                 </dl>
             </div>
             <div class="productsColumn">
-                <dl style="display: flex;">
-                    <dd class="product">
+                <dl>
+                    <dd class="product" v-for="produto in produtos">
                         <a href="Produto.html">
                             <img src="img/racao.jpeg" width="200px" height="200px">
                         </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                </dl>
-                <dl style="display: flex;">
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                </dl>
-                <dl style="display: flex;">
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
-                        <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
-                    </dd>
-                    <dd class="product">
-                        <a href="Produto.html">
-                            <img src="img/racao.jpeg" width="200px" height="200px">
-                        </a>
-                        <h1>Lorem<br>R$XX</h1>
+                        <h1>{{produto.nome}}<br>R$ {{produto.preco}}</h1>
                         <a href="#Comprar"><button type="button" class="buyButton" onclick="addCart()"> Comprar </button></a><br>
                     </dd>
                 </dl>
@@ -315,7 +260,23 @@ const produtos = {
             </div>
         </div>
     </div>
-    `
+    `,
+    methods: {
+        login: async function (){
+            try {
+                let resp = await fetch("http://localhost:8000/products/produtos", {
+                    method: 'GET'
+                });    
+                this.produtos = await resp.json();
+
+                console.log(this.produtos);
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    },
+    mounted(){
+        this.login();
+    }
 };
 
 const servicos = {
@@ -340,6 +301,11 @@ const servicos = {
 };
 
 const adocao = {
+    data: function(){
+        return{
+            pets: []
+        }
+    },
     template: `
     <div>
         <div class="background">
@@ -391,154 +357,14 @@ const adocao = {
 
 
             <div class="holder_box">
-                <div class="adopt">
+                <div class="adopt" v-for="pet in pets">
                     <div class="text-center">
                         <div class="card">
                             <img src="img/placeHolder2.jpg" width=200px id="img-profile">
                         </div>
         
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
-                        
-                        <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
-                            Adotar
-                        </button>
-                    </div>
-                </div>
-                <div class="adopt">
-                    <div class="text-center">
-                        <div class="card">
-                            <img src="img/placeHolder2.jpg" width=200px id="img-profile">
-                        </div>
-        
-                        <p>Pet name</p>
-                        <p>Pet age</p>
+                        <p>Nome: {{pet.nome}}</p>
+                        <p>Idade: {{pet.idade}}</p>
                         
                         <button type="button" onclick="location.href=('img/placeHolder2.jpg')"">
                             Adotar
@@ -549,7 +375,21 @@ const adocao = {
         </div>
         
     </div>
-    `
+    `,
+    methods: {
+        login: async function (){
+            try {
+                let resp = await fetch("http://localhost:8000/pets/animais", {
+                    method: 'GET'
+                });    
+                this.pets = await resp.json();
+            }
+            catch (e) {console.log("Error: " + e);}
+        }
+    },
+    mounted(){
+        this.login();
+    }
 };
 
 const sobre = {
