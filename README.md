@@ -79,8 +79,10 @@ Os testes foram realizados manualmente. Para sua execução, foram tomadas as se
   <li> Foram testados todos os links presentes no decorrer das páginas que dirigem o usuário as demais páginas; </li>
   <li> Compras foram simuladas para verificar a confirmação de compra; </li>
   <li> Agendamentos de serviços foram simulados para verificar a confirmação de agendamento; </li>
-  <li> Cadastros foram simulados para verificar a confirmação de castro e login; </li>
-  <li> Cadastros foram simulados para verificar a ocultação das senhas. </li>
+  <li> Cadastros foram simulados para verificar a confirmação de cadastro e login; </li>
+  <li> Cadastros foram simulados para verificar a ocultação das senhas; </li>
+  <li> As funções de login, cadastro, agendamento, cadastro de produtos e cadastro de pets foram devidamente testados quanto à conexão com o banco de dados; </li>
+  <li> As páginas de produtos e de adoção foram devidamente testadas para apontarem dados presentes no banco. </li>
 </ul>
     
 # Test Results
@@ -92,12 +94,12 @@ Procedimentos:<br>
     - Abrir command prompt;<br>
     - Digite "npm install -g node-static", aguarde;<br>
     - Digite "npm install -g express", aguarde;<br>
-    - Fechar e abrir o console;<br>
-    - Executar server.js (nome do javascript);<br>
+    - Acesse o path da pasta Projeto;<br>
     - Digite "node server.js", aguarde;<br>
     - Digite na barra de pesquisa "localhost:8000".<br>
     
 # Problems
-No problems
+    - O procedimento de logout não está funcionando devidamente.
     
 # Comments
+    - Para obter acesso às funcionalidades de administrador, realize o login com o nick: PVHS e a senha: admin .<br>
