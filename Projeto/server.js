@@ -10,7 +10,8 @@ const router = express.Router();
 exp.use(bodyParser.json());
 exp.use(bodyParser.urlencoded({extended: false}));
 
-const uri = "mongodb+srv://luana:webbd@cluster0.ai7ca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+//const uri = "mongodb+srv://luana:webbd@cluster0.ai7ca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb://localhost/WEB";
 const client = new MongoClient(uri);
 
 // serve your css as static

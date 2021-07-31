@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Agendamento </title>
+    <link href="style.css" rel="stylesheet">
+    <script src="source.js"></script>
+</head>
+<body>
+    <ul id="upperMenu">
+        <li><a href="Home.html">Logo</a></li>
+        <li><a href="Home.html">Início</a></li>
+        <li><a href="Products.html">Produtos</a></li>
+        <li><a href="Servicos.html">Serviços</a></li>
+        <li><a href="Adocao.html">Adoção</a></li>
+        <li><a href="Sobre.html">Sobre</a></li>
+        <li style="float: right"><a href="Cadastro.html">Registrar</a></li>
+        <li style="float: right"><a href="LogIn.html">Entrar</a></li>
+    </ul>
+    <div class="background">
+        <img src="img/servicos.jpeg" class="carousel">
+    </div>
+    <div class="background2">
+        <div class="text-center">
+            <input required type="date" id="fname" name="date">
+            <br>
+            <br>
+            <select required name="services">
+                <option value="" disabled selected hidden> Escolha um serviço... </option>
+                <option value="vet"> Veterinário </option>
+                <option value="banho"> Banho </option>
+                <option value="tosa"> Tosa </option>
+              </select>
+            <br>
+            <br>
+            <button type="button" onclick="scheduling()">
+            Agendar
+            </button>
+        </div>
+    </div>
+    <div class="background">
+        <img src="img/lineup.png" class="carousel">
+    </div>
+    <div class="background">
+        <div class="footer">
+            <p>
+                Contate-nos:<br><br>
+
+                loren.ipsum@dolor.sit<br>
+                Rua Lorem Ipsum Dolor, 123<br>
+                +55 (XX) 1234-5678
+            </p>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="Home.html">Início</a><br><br>
+                <a href="Products.html">Produtos</a><br><br>
+                <a href="Servicos.html">Serviços</a><br><br>
+                <a href="Adocao.html">Adoção</a><br><br>
+                <a href="Sobre.html">Sobre</a><br><br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
